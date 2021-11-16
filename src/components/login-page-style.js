@@ -5,7 +5,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const StyledLoginDiv = styled.div`
-  font-family: 'Quicksand', sans-serif;
   display:flex;
   flex-direction:column;
   align-items: center;
@@ -45,6 +44,7 @@ const StyledLoginDiv = styled.div`
     padding:1%;
     font-size:1.25rem;
     border-radius:8px;
+    font-family:inherit;
   }
 
 
