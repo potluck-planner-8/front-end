@@ -20,7 +20,7 @@ const StyledLoginDiv = styled.div`
     background-color: #9EA93F;
     border: 4px solid black;
     border-radius:16px;
-    width: 40%;
+    width: 25%;
     padding-bottom:2%;
     margin: 2%;
     display:flex;
