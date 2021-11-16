@@ -1,5 +1,7 @@
 # Potluck Planner 8
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 **Build Week Project for Lambda School**
 
 By Aanchal Saxena, Douglas Kim, Jada Banks, John Merz, Mark Trepanier, Ted Kim, and Leo Ọládimú
@@ -20,6 +22,15 @@ And if you’re invited as a guest to a Potluck Planner 8 event, the app enables
 
 
 ## Support
+
+Aanchal Saxena: aanchalsaxena018@gmail.com
+
+Douglas Kim: dougkim04@gmail.com
+
+Jada Banks: jbanks628@gmail.com
+
+John Merz: jmerz826@gmail.com
+
 Mark Trepanier: mrtrepani@gmail.com
 
 Ted Kim: tedkimemail@yahoo.com
