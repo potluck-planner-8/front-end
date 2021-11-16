@@ -51,13 +51,13 @@ const LoginPage = (props) => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    const newClient = {
+    const newUser = {
       username: formValues.username.trim(),
       password: formValues.password.trim()
     }
 
-    // postUser(newUser)
-    // newUser as param ↙
+    postUser(newUser)
+    
     return setUsers()
   }
   
