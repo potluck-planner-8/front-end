@@ -14,12 +14,12 @@ import axiosWithAuth from './axiosWithAuth';
                      }).catch((err) => console.log(err.message));
         }, [history]);
 
-        const handleDelete = (id) => {
+        const handleDelete = () => {
             axiosWithAuth()
                 .delete('https://potluck-planner-8.herokuapp.com/api/auth/logout')
                 .then((r) => {
-                    setArticles(r.data)
-                    push('/articles')
+                    setUsers(r.data)
+                    push('./users')
                 })
                 .catch((err) => console.log(err))
         }
