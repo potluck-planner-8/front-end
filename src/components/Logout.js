@@ -15,13 +15,13 @@ import axiosWithAuth from './axiosWithAuth';
         }, [history]);
 
         const handleDelete = () => {
-            axiosWithAuth()
-                .delete('https://potluck-planner-8.herokuapp.com/api/auth/logout')
-                .then((r) => {
-                    setUsers(r.data)
-                    push('./users')
-                })
-                .catch((err) => console.log(err))
+            // axiosWithAuth()
+            //     .delete('https://potluck-planner-8.herokuapp.com/api/auth/logout')
+            //     .then((r) => {
+            //         setUsers(r.data)
+            //         push('./users')
+            //     })
+            //     .catch((err) => console.log(err))
         }
 
         return(
