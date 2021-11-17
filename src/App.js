@@ -4,6 +4,7 @@ import PotluckForm from "./components/potluck-form";
 import LoginPage from "./components/login-page";
 import LoginPageStyle from "./components/login-page-style";
 import RegisterPage from "./components/register-page";
+import Landing from "./components/landing";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/style">
             <LoginPageStyle />
+          </Route>
+          <Route path='/landing'>
+            <Landing />
           </Route>
         </Switch>
       </div>

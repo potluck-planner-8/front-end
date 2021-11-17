@@ -1,8 +1,13 @@
 import React from "react";
 import LoginPage from './login-page';
+import { Link } from "react-router-dom";
 
 const HomePage = (props) => {
-  return <h1>☠︎</h1>
+  return <div>
+    <h1>Welcome to the Potluck Planner!</h1>
+    <Link to='login'> Login </Link>
+    <Link to='register'> Register </Link>
+    </div>
   ;
 };
 
