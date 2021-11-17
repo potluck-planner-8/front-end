@@ -6,11 +6,14 @@ import LoginPageStyle from "./components/login-page-style";
 import RegisterPage from "./components/register-page";
 import Landing from "./components/landing";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import Header from "./components/header";
 
 function App() {
   return (
+
     <Router>
       <div className="App">
+        <Header />
         <Switch>
           <Route exact path="/">
             <HomePage />
