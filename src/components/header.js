@@ -7,6 +7,7 @@ const StyledHeader = styled.header`
 
     h1{
         margin:0;
+        text-decoration: underline;
         padding:1%;
         font-size: 3.05rem;
         text-align:left;
