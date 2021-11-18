@@ -3,6 +3,10 @@
   font-family: 'Quicksand', sans-serif;
 }
 
+body{
+  background-color: #474B24;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
