@@ -22,7 +22,7 @@ const formSchema = yup.object().shape({
         .min(1),
     role_name: yup
         .string()
-        .oneOf(['client'], 'Role is required!'),
+        .oneOf(['role'], 'Role is required!'),
 })
 
 export default formSchema;
