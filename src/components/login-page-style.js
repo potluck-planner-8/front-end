@@ -8,6 +8,8 @@ const StyledLoginDiv = styled.div`
   display:flex;
   flex-direction:column;
   align-items: center;
+  height:100vh;
+  background-color:green ;
 
   h2{
     font-size: 2.44rem;
@@ -24,7 +26,7 @@ const StyledLoginDiv = styled.div`
     margin: 2%;
     display:flex;
     flex-direction:column;
-    
+
   }
   form input{
     text-align:left;
@@ -46,7 +48,16 @@ const StyledLoginDiv = styled.div`
     border-radius:8px;
     font-family:inherit;
   }
+  body{
+  background-image: url(/src/Photos/spencer-davis-vJsj-hgOEG0-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity:0.4;
+  }
 
+.turkey{
+ background-color: rgba(255, 255, 255, 0.70)
+}
 
 `;
 
@@ -116,7 +127,7 @@ const LoginPage = (props) => {
     <StyledLoginDiv>
       
       <form id='login-form' onSubmit={formSubmit}>
-        <h2>Login</h2>
+        <h2>Hello</h2>
           { formErrors.username.length > 0 ? <p style={{color: 'orange', align:'right'} }>{ formErrors.username }</p> : null }
           <input
             id="username"
@@ -158,6 +169,7 @@ const LoginPage = (props) => {
         </a> */}
 
       </form>
+      <h2 className='turkey'>Turkey day is around the corner!</h2>
     </StyledLoginDiv>
   )
 }
