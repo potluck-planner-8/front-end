@@ -18,11 +18,13 @@ const formSchema = yup.object().shape({
     password: yup
         .string()
         .trim()
-        .required('Password is required!')
-        .min(1),
+        .required('Valid Password!')
+        .matches(
+            /1234/, 'Must Submit A Valid Password!!'
+        ),
     role_name: yup
         .string()
-        .oneOf(['role'], 'Role is required!'),
+        .oneOf(['role'], 'Pick a Role!'),
 })
 
 export default formSchema;
