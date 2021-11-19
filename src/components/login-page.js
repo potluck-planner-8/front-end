@@ -109,7 +109,7 @@ const LoginPage = (props) => {
         console.log(r.data);
         //setUsers([r.data, ...users]);
         //setFormValues(initialFormValues);
-        history.push("/");
+        history.push("/landing");
       })
       .catch((err) => {
         console.error(err);
