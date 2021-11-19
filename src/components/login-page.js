@@ -1,60 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import * as yup from "yup";
-import schema from "./formSchema";
 import axios from "axios";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const StyledLoginDiv = styled.div`
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  height:100vh;
-  background-color: #474B24;
+  height: 100vh;
+  background-color: #474b24;
 
-  h2{
+  h2 {
     font-size: 2.44rem;
     /* text-align:left; */
     margin-left: 5%;
   }
 
-  form{
-    background-color: #9EA93F;
+  form {
+    background-color: #9ea93f;
     border: 4px solid black;
-    border-radius:16px;
+    border-radius: 16px;
     width: 25%;
-    padding-bottom:2%;
+    padding-bottom: 2%;
     margin: 2%;
-    display:flex;
-    flex-direction:column;
-
+    display: flex;
+    flex-direction: column;
   }
-  form input{
-    text-align:left;
-    box-sizing:border-box;
-    max-width:90%;
+  form input {
+    text-align: left;
+    box-sizing: border-box;
+    max-width: 90%;
     /* width:50%; */
     margin: 0 5%;
     font-size: 1.25rem;
     margin-bottom: 2%;
-    padding:1%;
-    border-radius: 8px; 
+    padding: 1%;
+    border-radius: 8px;
   }
 
-  button{
-    background-color:black;
-    color:white;
+  button {
+    background-color: black;
+    color: white;
     /* width:50%; */
-    margin:0 5%;
-    padding:1%;
-    font-size:1.25rem;
-    border-radius:8px;
-    font-family:inherit;
+    margin: 0 5%;
+    padding: 1%;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    font-family: inherit;
   }
-.turkey{
- background-color: rgba(255, 255, 255, 0.70)
-}
-
+  .turkey {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
 `;
 
 const LoginPage = (props) => {
@@ -63,19 +59,19 @@ const LoginPage = (props) => {
     password: "",
   };
 
-  const initialFormErrors = {
-    username: "",
-    password: "",
-  };
+  // const initialFormErrors = {
+  //   username: "",
+  //   password: "",
+  // };
 
-  const initialDisabled = true;
+  //const initialDisabled = true;
 
   const history = useHistory();
 
   //const [users, setUsers] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(initialDisabled);
+  //const [formErrors, setFormErrors] = useState(initialFormErrors);
+  //const [disabled, setDisabled] = useState(initialDisabled);
 
   // const validate = (name, value) => {
   //   yup
@@ -85,9 +81,9 @@ const LoginPage = (props) => {
   //     .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
   // };
 
-  useEffect(() => {
-    console.log(formErrors);
-  }, [formErrors]);
+  // useEffect(() => {
+  //   console.log(formErrors);
+  // }, [formErrors]);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -124,36 +120,34 @@ const LoginPage = (props) => {
   return (
     <StyledLoginDiv>
       <form id="login-form" onSubmit={formSubmit}>
-      <h2>Login</h2>
+        <h2>Login</h2>
         <div className="user-box">
-        
-            <input
-              id="username"
-              value={formValues.username}
-              name="username"
-              type="text"
-              onChange={onChange}
-              placeholder='username'
-            />
-         
-          {formErrors.username.length > 0 ? (
+          <input
+            id="username"
+            value={formValues.username}
+            name="username"
+            type="text"
+            onChange={onChange}
+            placeholder="username"
+          />
+
+          {/* {formErrors.username.length > 0 ? (
             <p style={{ color: "orange" }}>{formErrors.username}</p>
-          ) : null}
+          ) : null} */}
         </div>
         <div className="user-box">
-         
-            <input
-              id=""
-              value={formValues.password}
-              name="password"
-              type="password"
-              onChange={onChange}
-              placeholder='password'
-            />
-          
-          {formErrors.password.length > 0 ? (
+          <input
+            id=""
+            value={formValues.password}
+            name="password"
+            type="password"
+            onChange={onChange}
+            placeholder="password"
+          />
+
+          {/* {formErrors.password.length > 0 ? (
             <p style={{ color: "orange" }}>{formErrors.password}</p>
-          ) : null}
+          ) : null} */}
         </div>
         <button type="submit">submit</button>
 
@@ -165,7 +159,7 @@ const LoginPage = (props) => {
           Submit!
         </a> */}
       </form>
-      <h2 className='turkey'>Turkey day is around the corner!</h2>
+      <h2 className="turkey">Turkey day is around the corner!</h2>
     </StyledLoginDiv>
   );
 };

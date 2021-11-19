@@ -1,22 +1,12 @@
-import React, { useEffect } from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import React from "react";
+import { useHistory } from "react-router-dom";
 
-export const Logout = () => {  
-   console.log('%∞')
-    useEffect(() => {
-        axiosWithAuth()
-            .post('https://potluck-planner-8.herokuapp.com/api')
-            .then(r => {
-                console.log('£', r)
-                // localStorage.removeItem('token');
-            }).catch((err) => console.log(err.message));
-    },[]);
-
-    return (
-        <div>
-            <button className='logout' onClick={handleDelete}>Logout</button>
-        </div>
-    )
+const Logout = () => {
+  const history = useHistory();
+  localStorage.removeItem("token");
+  history.push("/");
+  return <></>;
 };
 
+export default Logout;
 // export default Logout
