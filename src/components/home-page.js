@@ -1,5 +1,6 @@
 import React from "react";
 import LoginPage from './login-page';
+import RegisterPage from './register-page';
 import { Link } from "react-router-dom";
 
 const HomePage = (props) => {
