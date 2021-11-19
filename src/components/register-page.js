@@ -1,153 +1,167 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
-import axios from 'axios';
-import * as yup from 'yup';
-import schema from './formSchemaRegister';
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
+import * as yup from "yup";
+import schema from "./formSchema";
+import axios from "axios";
+import styled from "styled-components";
 
-const initialFormValues = {
-  name: '',
-  email: '',
-  username: '',
-  password: '',
-  role_name: ''
-}
+const StyledRegisterDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #474b24;
 
-const initialFormErrors = {
-  name: '',
-  email: '',
-  username: '',
-  password: '',
-  role_name: ''
-}
+  h2 {
+    font-size: 2.44rem;
+    /* text-align:left; */
+    margin-left: 5%;
+  }
 
-const initialDisabled = true;
-const initialUsers = [];
+  form {
+    background-color: #9ea93f;
+    border: 4px solid black;
+    border-radius: 16px;
+    width: 25%;
+    padding-bottom: 2%;
+    margin: 2%;
+    display: flex;
+    flex-direction: column;
+  }
+  form input {
+    text-align: left;
+    /* width:50%; */
+    margin: 0 5%;
+    font-size: 1.25rem;
+    margin-bottom: 2%;
+    padding: 1%;
+    border-radius: 8px;
+  }
 
-const RegisterPage = () => {
+  button {
+    background-color: black;
+    color: white;
+    /* width:50%; */
+    margin: 0 5%;
+    padding: 1%;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    font-family: inherit;
+  }
+  .turkey {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+`;
+
+const RegisterPage = (props) => {
+  const initialFormValues = {
+    username: "",
+    password: "",
+  };
+
+  const initialFormErrors = {
+    username: "",
+    password: "",
+  };
+
+  const initialDisabled = true;
 
   const history = useHistory();
-  const [users, setUsers ] = useState(initialUsers);
-  const [formValues, setFormValues] = useState  (initialFormValues);
+
+  //const [users, setUsers] = useState([]);
+  const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
-  const {role_name} = users;
-  
-  const postNewUser = newUser => {
-    axios.post('https://potluck-planner-8.herokuapp.com/api/auth/register', users)
-      .then(r => {
-        setUsers([r.data, ...users]);   
-        setFormValues(initialFormValues);
-      }).catch(err => {
-        console.error(err);
-        setFormValues(initialFormValues);
-      })
-  }
-
-  const validate = (name, value) => {
-    yup.reach(schema, name)
-       .validate(value)
-       .then(() => setFormErrors({ ...formErrors, [name]: '' }))
-       .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
-  }
+  // const validate = (name, value) => {
+  //   yup
+  //     .reach(schema, name)
+  //     .validate(value)
+  //     .then(() => setFormErrors({ ...formErrors, [name]: "" }))
+  //     .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
+  // };
 
   useEffect(() => {
-      schema.isValid(formValues).then(valid => setDisabled(!valid))
-  }, [formValues])
+    console.log(formErrors);
+  }, [formErrors]);
 
-  const inputChange = (name, value) => {
-    validate(name, value);
-    setFormValues({
-      ...formValues,
-      [name]: value
-    })
-  }
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    //validate(name, value);
+    setFormValues({ ...formValues, [name]: value });
+  };
 
-  const onChange = evt => {
-    const { name, value } = evt.target;
-    const valueToUse = value;
-    inputChange(name, valueToUse);
-  }
-
-  const formSubmit = () => {
-    const newUser = {
-      name: formValues.name.trim(),
-      email: formValues.email.trim(),
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const user = {
       username: formValues.username.trim(),
       password: formValues.password.trim(),
-      role_name: formValues.role_name.trim()
-    }
-    postNewUser(newUser);   
-  }
+    };
 
-  const onSubmit = event => {
-    event.preventDefault()
-    formSubmit()
-  }
-    
+    axios
+      .post("https://potluck-planner-8.herokuapp.com/api/auth/register", user)
+      .then((r) => {
+        localStorage.setItem("token", r.data.token);
+        console.log(r.data);
+        //setUsers([r.data, ...users]);
+        //setFormValues(initialFormValues);
+        history.push("/");
+      })
+      .catch((err) => {
+        console.error(err);
+        //setFormValues(initialFormValues);
+      });
+  };
+
+  // useEffect(() => {
+  //   schema.isValid(formValues).then((valid) => setDisabled(!valid));
+  // }, [formValues]);
+
   return (
-    <div className="register-box">
-      <header>
-        <h1>Register</h1>
-      </header>
+    <StyledRegisterDiv>
       <form id="register-form" onSubmit={formSubmit}>
-        <div>
-          <label>Full Name: </label>
-            <input
-              id="name-input"
-              name="name"
-              tyonChange={onChange}
-            />
+        <h2>Register</h2>
+        <div className="user-box">
+          <input
+            id="username"
+            value={formValues.username}
+            name="username"
+            type="text"
+            onChange={onChange}
+            placeholder="username"
+          />
+
+          {formErrors.username.length > 0 ? (
+            <p style={{ color: "orange" }}>{formErrors.username}</p>
+          ) : null}
         </div>
-        <div>
-          <label>Email: </label>
-            <input
-              id="email-input"
-              name="email" 
-              type="text" 
-              onChange={onChange} 
-            />
+        <div className="user-box">
+          <input
+            id=""
+            value={formValues.password}
+            name="password"
+            type="password"
+            onChange={onChange}
+            placeholder="password"
+          />
+
+          {formErrors.password.length > 0 ? (
+            <p style={{ color: "orange" }}>{formErrors.password}</p>
+          ) : null}
         </div>
-        <div>
-          <label>Username: </label>
-            <input 
-              id="username-input" 
-              name="username" 
-              type="text" 
-              onChange={onChange} 
-            />
-        </div>
-        <div>
-          <label>Password: </label>
-            <input 
-              id="password-input" 
-              name="password" 
-              type="password" 
-              onChange={onChange} 
-            />
-        </div>
-        <div>
-          <label>What Are You?</label>
-            <select 
-              id='role-dropdown' 
-              name='role_name' 
-              value={role_name} 
-              onChange={onChange}>
-                <option value=''>Select a role</option>
-                <option value='organizer'>Organizer</option>
-                <option value='guest'>Guest</option>
-            </select>
-        </div>
-        <div>
-          <button 
-            id="submit-button" 
-            type="submit" 
-            disabled={disabled}>SUBMIT!!
-          </button>
-        </div>
+        <button type="submit">submit</button>
+
+        {/* <a href='submit-button' type='submit' disabled={disabled}>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit!
+        </a> */}
       </form>
-    </div>
-  )
-}
+      <h2 className="turkey">Turkey day is around the corner!</h2>
+    </StyledRegisterDiv>
+  );
+};
 
 export default RegisterPage;
