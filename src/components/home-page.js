@@ -12,6 +12,7 @@ background-image: url(${photo});
 background-repeat: no-repeat;
 background-size: cover;
 opacity:0.8;
+background-attachment: fixed;
 
 h1{
   color: white;
