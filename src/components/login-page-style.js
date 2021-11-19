@@ -8,8 +8,7 @@ const StyledLoginDiv = styled.div`
   display:flex;
   flex-direction:column;
   align-items: center;
-  height:100vh;
-  background-color:green ;
+ 
 
   h2{
     font-size: 2.44rem;
