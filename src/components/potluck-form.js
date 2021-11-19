@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const initialPotluck = {
     date:"",
@@ -10,10 +12,21 @@ const initialPotluck = {
 const PotluckForm = ()=> {
   const [potluck, setPotluck] = useState(initialPotluck);
   const [item, setItem] = useState('');
+  const {push} = useHistory();
 
 
   const handleCreate = (potluck) => {
     //axios call here
+    axiosWithAuth()
+        .post('https://potluck-planner-8.herokuapp.com/api/potlucks', potluck)
+        .then(res=> {
+            console.log(res)
+        })
+        .catch(err=> {
+            console.log(err)
+        })
+    setPotluck(initialPotluck)
+    push('/landing')
     
     console.log('submitting potluck to backend!', potluck)
 }
