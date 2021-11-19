@@ -3,6 +3,59 @@ import { useHistory } from "react-router";
 import * as yup from "yup";
 import schema from "./formSchema";
 import axios from "axios";
+import styled from 'styled-components';
+
+const StyledLoginDiv = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  height:100vh;
+  background-color: #474B24;
+
+  h2{
+    font-size: 2.44rem;
+    /* text-align:left; */
+    margin-left: 5%;
+  }
+
+  form{
+    background-color: #9EA93F;
+    border: 4px solid black;
+    border-radius:16px;
+    width: 25%;
+    padding-bottom:2%;
+    margin: 2%;
+    display:flex;
+    flex-direction:column;
+
+  }
+  form input{
+    text-align:left;
+    box-sizing:border-box;
+    max-width:90%;
+    /* width:50%; */
+    margin: 0 5%;
+    font-size: 1.25rem;
+    margin-bottom: 2%;
+    padding:1%;
+    border-radius: 8px; 
+  }
+
+  button{
+    background-color:black;
+    color:white;
+    /* width:50%; */
+    margin:0 5%;
+    padding:1%;
+    font-size:1.25rem;
+    border-radius:8px;
+    font-family:inherit;
+  }
+.turkey{
+ background-color: rgba(255, 255, 255, 0.70)
+}
+
+`;
 
 const LoginPage = (props) => {
   const initialFormValues = {
@@ -69,35 +122,35 @@ const LoginPage = (props) => {
   // }, [formValues]);
 
   return (
-    <div className="login-box">
-      <h2>Login</h2>
+    <StyledLoginDiv>
       <form id="login-form" onSubmit={formSubmit}>
+      <h2>Login</h2>
         <div className="user-box">
-          <label>
-            Username
+        
             <input
               id="username"
               value={formValues.username}
               name="username"
               type="text"
               onChange={onChange}
+              placeholder='username'
             />
-          </label>
+         
           {formErrors.username.length > 0 ? (
             <p style={{ color: "orange" }}>{formErrors.username}</p>
           ) : null}
         </div>
         <div className="user-box">
-          <label>
-            Password
+         
             <input
               id=""
               value={formValues.password}
               name="password"
               type="password"
               onChange={onChange}
+              placeholder='password'
             />
-          </label>
+          
           {formErrors.password.length > 0 ? (
             <p style={{ color: "orange" }}>{formErrors.password}</p>
           ) : null}
@@ -112,7 +165,8 @@ const LoginPage = (props) => {
           Submit!
         </a> */}
       </form>
-    </div>
+      <h2 className='turkey'>Turkey day is around the corner!</h2>
+    </StyledLoginDiv>
   );
 };
 
