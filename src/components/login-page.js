@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useHistory } from "react-router";
 import axios from "axios";
 import styled from "styled-components";
@@ -64,14 +64,14 @@ const LoginPage = (props) => {
   //   password: "",
   // };
 
-  //const initialDisabled = true;
+  // const initialDisabled = true;
 
   const history = useHistory();
 
   //const [users, setUsers] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
-  //const [formErrors, setFormErrors] = useState(initialFormErrors);
-  //const [disabled, setDisabled] = useState(initialDisabled);
+  // const [formErrors, setFormErrors] = useState(initialFormErrors);
+  // const [disabled, setDisabled] = useState(initialDisabled);
 
   // const validate = (name, value) => {
   //   yup

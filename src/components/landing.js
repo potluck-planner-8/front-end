@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
@@ -46,19 +47,20 @@ const StyledLanding = styled.div`
 `;
 
 const Landing = (props) => {
-    const [potlucks, setPotlucks] = useState([]);
+  const [potlucks, setPotlucks] = useState([]);
 
-    useEffect(() => {
-        axiosWithAuth()
-            .get('https://potluck-planner-8.herokuapp.com/api/potlucks')
-            .then(res=>{
-                console.log(res)
-            setPotlucks(res.data)
-            })
-            .catch(err=>{
-            console.log(err)
-            })
-    }, [])
+  useEffect(() => {
+    axiosWithAuth()
+      .get("https://potluck-planner-8.herokuapp.com/api/potlucks")
+      .then((res) => {
+        console.log(res);
+        setPotlucks(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
 
     return (
         <StyledLanding>
