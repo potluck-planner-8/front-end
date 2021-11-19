@@ -12,9 +12,10 @@ const formSchema = yup.object().shape({
         .required('Email is required!'),
     username: yup
         .string()
+        .min(5, '>= 5!!')
         .trim()
-        .required('Username is required!')
-        .min(1),
+        .matches(/JoeBlow/, '')
+        .required('Type Your Name!'),
     password: yup
         .string()
         .trim()

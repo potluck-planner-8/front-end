@@ -99,6 +99,7 @@ const RegisterPage = () => {
               tyonChange={onChange}
             />
         </div>
+        <br></br>
         <div>
           <label>Email: </label>
             <input
@@ -108,6 +109,7 @@ const RegisterPage = () => {
               onChange={onChange} 
             />
         </div>
+        <br></br>
         <div>
           <label>Username: </label>
             <input 
@@ -117,6 +119,7 @@ const RegisterPage = () => {
               onChange={onChange} 
             />
         </div>
+        <br></br>
         <div>
           <label>Password: </label>
             <input 
@@ -126,6 +129,7 @@ const RegisterPage = () => {
               onChange={onChange} 
             />
         </div>
+        <br></br>
         <div>
           <label>What Are You?</label>
             <select 
@@ -138,6 +142,8 @@ const RegisterPage = () => {
                 <option value='guest'>Guest</option>
             </select>
         </div>
+        <br></br>
+        <br></br>
         <div>
           <button 
             id="submit-button" 
