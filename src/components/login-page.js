@@ -31,6 +31,8 @@ const StyledLoginDiv = styled.div`
   }
   form input{
     text-align:left;
+    box-sizing:border-box;
+    max-width:90%;
     /* width:50%; */
     margin: 0 5%;
     font-size: 1.25rem;
