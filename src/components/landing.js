@@ -39,6 +39,10 @@ const StyledLanding = styled.div`
         font-size: 1rem;
         margin-top: 0;  
     }
+    .emojis{
+        font-size:4rem;
+        margin-top:2%;
+    }
 `;
 
 const Landing = (props) => {
@@ -71,6 +75,7 @@ const Landing = (props) => {
                     )
                 })}
             </div>
+            <p className='emojis'>🦃🍂🥧</p>
         </StyledLanding>
     )
 }
