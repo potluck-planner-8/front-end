@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
-import * as yup from "yup";
-import schema from "./formSchema";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -59,19 +57,19 @@ const RegisterPage = (props) => {
     password: "",
   };
 
-  const initialFormErrors = {
-    username: "",
-    password: "",
-  };
+  // const initialFormErrors = {
+  //   username: "",
+  //   password: "",
+  // };
 
-  const initialDisabled = true;
+  //const initialDisabled = true;
 
   const history = useHistory();
 
   //const [users, setUsers] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(initialDisabled);
+  //const [formErrors, setFormErrors] = useState(initialFormErrors);
+  //const [disabled, setDisabled] = useState(initialDisabled);
 
   // const validate = (name, value) => {
   //   yup
@@ -81,9 +79,9 @@ const RegisterPage = (props) => {
   //     .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
   // };
 
-  useEffect(() => {
-    console.log(formErrors);
-  }, [formErrors]);
+  // useEffect(() => {
+  //   console.log(formErrors);
+  // }, [formErrors]);
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -131,9 +129,9 @@ const RegisterPage = (props) => {
             placeholder="username"
           />
 
-          {formErrors.username.length > 0 ? (
+          {/* {formErrors.username.length > 0 ? (
             <p style={{ color: "orange" }}>{formErrors.username}</p>
-          ) : null}
+          ) : null} */}
         </div>
         <div className="user-box">
           <input
@@ -145,9 +143,9 @@ const RegisterPage = (props) => {
             placeholder="password"
           />
 
-          {formErrors.password.length > 0 ? (
+          {/* {formErrors.password.length > 0 ? (
             <p style={{ color: "orange" }}>{formErrors.password}</p>
-          ) : null}
+          ) : null} */}
         </div>
         <button type="submit">submit</button>
 
